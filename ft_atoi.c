@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_re.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 18:33:08 by dajeon            #+#    #+#             */
-/*   Updated: 2023/05/03 20:23:59 by dajeon           ###   ########.fr       */
+/*   Created: 2023/05/04 16:54:06 by dajeon            #+#    #+#             */
+/*   Updated: 2023/05/04 19:47:28 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 static long	ft_strtol(const char *nptr);
 static int	ft_ctoi(int c, int sign);
-static long	ft_check(long nbr, int new);
-static int	ft_isspace(int c);
-static int	ft_isdigit(int c);
+static long	ft_make_number(long nbr, int new);
 
 int	ft_atoi(const char *nptr)
 {
@@ -26,43 +24,42 @@ static long	ft_strtol(const char *nptr)
 	int		sign;
 	long	nbr;
 
-	while (ft_isspace(*nptr))
-		nptr++;
 	sign = 1;
+	while (*nptr == 32 || (9 <= *nptr && *nptr <= 13))
+		nptr++;
 	if (*nptr == '-' || *nptr == '+')
 	{
-		if (*(nptr++) == '-')
+		if (*nptr == '-')
 			sign = -1;
+		nptr++;
 	}
-	while (ft_isdigit(*nptr) == 0)
-		nbr = ft_check(nbr, ft_ctoi(*(nptr++), sign));
+	nbr = 0;
+	while ('0' <= *nptr && *nptr <= '9')
+	{
+		nbr = ft_make_number(nbr, ft_ctoi(*nptr, sign));
+		nptr++;
+	}
 	return (nbr);
-}
-
-static int	ft_isspace(int c)
-{
-	if (c == 32 || (9 <= c && c <= 13))
-		return (1);
-	else
-		return (0);
 }
 
 static int	ft_ctoi(int c, int sign)
 {
-	return (c - '0');
+	return (sign * (c - '0'));
 }
 
-static int	ft_isdigit(int c)
+static long	ft_make_number(long nbr, int new)
 {
-	return ('0' <= c && c <= '9');
-}
+	long	temp;
+	long	check_nbr;
+	int		check_new;
 
-static long	ft_check(long nbr, int new)
-{
-	if (nbr * 10 > LONG_MAX + new)
+	temp = nbr * 10 + new;
+	check_nbr = temp / 10;
+	check_new = temp % 10;
+	if (check_nbr == nbr && check_new == new)
+		return (temp);
+	else if (nbr > 0)
 		return (-1);
-	else if (nbr * 10 < LONG_MIN + new)
+	else
 		return (0);
-	else 
-		return (nbr * 10 + new);
 }
