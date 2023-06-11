@@ -1,8 +1,16 @@
-CC = gcc
-AR = ar
-RM = rm -rf
-CFLAGS = -Wall -Werror -Wextra
-ARFLAGS = crus
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/06/11 18:18:27 by dajeon            #+#    #+#              #
+#    Updated: 2023/06/11 18:20:20 by dajeon           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libft.a
 
 SRCS = ft_strncmp.c ft_memchr.c ft_atoi.c ft_memcmp.c ft_strnstr.c \
 	   ft_strrchr.c ft_strchr.c ft_toupper.c ft_tolower.c ft_strlcpy.c \
@@ -19,8 +27,11 @@ SRCS = ft_strncmp.c ft_memchr.c ft_atoi.c ft_memcmp.c ft_strnstr.c \
 
 SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 			 ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-
-SRC_H = libft.h
+CC = gcc
+AR = ar
+RM = rm -rf
+CFLAGS = -Wall -Werror -Wextra
+ARFLAGS = crus
 
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
@@ -31,23 +42,16 @@ else
 	OBJS_C = $(OBJS)
 endif
 
-NAME = libft.a
-
 all : $(NAME)
 
 bonus :
-	make WITH_BONUS=1 $(NAME)
-
-$(NAME) : $(OBJS_C) $(SRC_H)
-	$(AR) $(ARFLAGS) $@ $^ 
-
-# .c.o :
-#	$(CC) $(CFLAGS) -c -o $@ $<
+	$(MAKE) WITH_BONUS=1
 
 clean : 
 	$(RM) $(OBJS) $(OBJS_BONUS)
 
-fclean : clean
+fclean : 
+	clean
 	$(RM) $(NAME)
 
 re : 
@@ -55,3 +59,7 @@ re :
 	$(MAKE) all
 
 .PHONY: all clean fclean re bonus
+
+
+$(NAME) : $(OBJS_C) $(SRC_H)
+	$(AR) $(ARFLAGS) $@ $^ 
