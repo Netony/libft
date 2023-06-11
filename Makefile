@@ -6,7 +6,7 @@
 #    By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/11 18:18:27 by dajeon            #+#    #+#              #
-#    Updated: 2023/06/11 18:20:20 by dajeon           ###   ########.fr        #
+#    Updated: 2023/06/11 22:07:37 by dajeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRCS = ft_strncmp.c ft_memchr.c ft_atoi.c ft_memcmp.c ft_strnstr.c \
 
 SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 			 ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-CC = gcc
+CC = cc
 AR = ar
 RM = rm -rf
 CFLAGS = -Wall -Werror -Wextra
@@ -51,7 +51,7 @@ clean :
 	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean : 
-	clean
+	$(MAKE) clean
 	$(RM) $(NAME)
 
 re : 
