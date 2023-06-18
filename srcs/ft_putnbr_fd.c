@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include "libft.h"
 
-size_t	ft_putnbr_fd(int n, int fd)
+ssize_t	ft_putnbr_fd(int n, int fd)
 {
 	char	*nstr;
 	size_t	put;

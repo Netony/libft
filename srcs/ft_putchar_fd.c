@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-size_t	ft_putchar_fd(char c, int fd)
+ssize_t	ft_putchar_fd(char c, int fd)
 {
 	size_t	put;
 
