@@ -6,15 +6,18 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 10:42:41 by dajeon            #+#    #+#             */
-/*   Updated: 2022/12/13 10:43:38 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/06/18 19:48:08 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+size_t	ft_putendl_fd(char *s, int fd)
 {
-	while (*s)
-		write(fd, s++, 1);
-	write(fd, "\n", 1);
+	size_t	put;
+
+	put = write(fd, s, ft_strlen(s));
+	if (put >= 0)
+		put += write(fd, "\n", 1);
+	return (put);
 }

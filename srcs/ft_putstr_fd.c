@@ -6,14 +6,16 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 10:40:24 by dajeon            #+#    #+#             */
-/*   Updated: 2022/12/13 10:41:53 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/06/18 19:49:29 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+size_t	ft_putstr_fd(char *s, int fd)
 {
-	while (*s)
-		write(fd, s++, 1);
+	size_t	put;
+
+	put = write(fd, s, ft_strlen(s));
+	return (put);
 }
