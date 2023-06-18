@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 21:27:06 by dajeon            #+#    #+#             */
-/*   Updated: 2023/06/18 19:49:27 by dajeon           ###   ########.fr       */
+/*   Created: 2023/06/18 21:04:32 by dajeon            #+#    #+#             */
+/*   Updated: 2023/06/18 21:04:33 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+int		ft_iseq(int a, int b);
+int		ft_iseqlen(char const *s, char c, int not);
+char	*ft_iseqmv(char const *s, char c, int not);
+int		ft_isin(int a, char const *b);
+int		ft_isinlen(char const *s, char const *set, int not);
+char	*ft_isinmv(char const *s, char const *set, int not);
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(const char *nptr);

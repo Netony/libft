@@ -6,13 +6,11 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 12:24:30 by dajeon            #+#    #+#             */
-/*   Updated: 2022/12/14 18:35:09 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/06/16 10:20:37 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int		ft_isin(char const c, char const *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -40,18 +38,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	else
 		ft_strlcpy(trim, s1 + start, end - start + 1);
 	return (trim);
-}
-
-static int	ft_isin(char const c, char const *set)
-{
-	int	i;
-
-	i = 0;
-	while (set[i])
-	{
-		if (set[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
 }
