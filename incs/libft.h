@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 21:04:32 by dajeon            #+#    #+#             */
-/*   Updated: 2023/06/18 21:04:33 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/01 07:02:33 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+char	*ft_ltoa(long n, char *base, int issigned);
 
 int		ft_iseq(int a, int b);
 int		ft_iseqlen(char const *s, char c, int not);
