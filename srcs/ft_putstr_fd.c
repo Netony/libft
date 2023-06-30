@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 10:40:24 by dajeon            #+#    #+#             */
-/*   Updated: 2023/06/18 19:49:29 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/01 06:58:26 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ssize_t	ft_putstr_fd(char *s, int fd)
 {
-	size_t	put;
+	ssize_t	put;
 
 	put = write(fd, s, ft_strlen(s));
 	return (put);
