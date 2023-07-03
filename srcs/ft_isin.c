@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:03:15 by dajeon            #+#    #+#             */
-/*   Updated: 2023/06/16 20:33:28 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/03 12:57:28 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,14 @@
 
 int	ft_isin(int a, char const *b)
 {
-	return (ft_strchr(b, a) != NULL);
+	int	i;
+	
+	i = 0;
+	while (b[i])
+	{
+		if (a == b[i])
+			return (1);
+		i++;
+	}
+	return (0);
 }
