@@ -6,7 +6,7 @@
 /*   By: dajeon <dajeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 20:42:05 by dajeon            #+#    #+#             */
-/*   Updated: 2023/06/30 19:29:58 by dajeon           ###   ########.fr       */
+/*   Updated: 2023/07/03 12:54:21 by dajeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	ltoa_number(char *ltoa, int minus, unsigned long n, char *base)
 
 static int	ltoa_get_digit(unsigned long n, char *base)
 {
-	int radix;
+	int	radix;
 	int	digit;
 
 	radix = ft_strlen(base);
