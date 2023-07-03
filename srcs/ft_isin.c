@@ -15,7 +15,7 @@
 int	ft_isin(int a, char const *b)
 {
 	int	i;
-	
+
 	i = 0;
 	while (b[i])
 	{

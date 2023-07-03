@@ -1,8 +1,10 @@
 NAME = libft.a
 
-SRCS_DIR = srcs
-OBJS_DIR = objs
-INCS_DIR = incs
+SRC_DIR = srcs
+OBJ_DIR = objs
+INC_DIR = incs
+
+INCLUDES = get_next_line.h libft.h
 
 SOURCES = \
 		  ft_ltoa.c \
@@ -14,6 +16,7 @@ SOURCES = \
 		  ft_strlcat.c \
 		  \
 		  ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+		  ft_isspace.c \
 		  ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
 		  \
 		  ft_calloc.c ft_strdup.c \
@@ -27,8 +30,9 @@ SOURCES = \
 		  ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 		  ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
 
-OBJS = $(addprefix $(OBJS_DIR)/, $(SOURCES:.c=.o))
-SRCS = $(addprefix $(SRCS_DIR)/, $(SOURCES))
+OBJS = $(addprefix $(OBJ_DIR)/, $(SOURCES:.c=.o))
+SRCS = $(addprefix $(SRC_DIR)/, $(SOURCES))
+INCS = $(addprefix $(INC_DIR)/, $(INCLUDES))
 
 MAKE = make
 CC = gcc
@@ -36,14 +40,14 @@ AR = ar
 RM = rm
 
 CFLAGS = -Wall -Werror -Wextra
-ARFLAGS = crus
+ARFLAGS = crs
 RMFLAGS = -rf
 
 all : $(NAME)
 
 clean : 
 	$(RM) $(RMFLAGS) $(OBJS)
-	$(RM) $(RMFLAGS) $(OBJS_DIR)
+	$(RM) $(RMFLAGS) $(OBJ_DIR)
 
 fclean : 
 	$(MAKE) clean
@@ -58,8 +62,8 @@ re :
 $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
-$(OBJS_DIR)/%.o : $(SRCS_DIR)/%.c | $(OBJS_DIR)
-	$(CC) $(CFLAGS) $< -c -I $(INCS_DIR) -o $@
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INCS) | $(OBJ_DIR)
+	$(CC) $(CFLAGS) $< -c -I $(INC_DIR) -o $@
 
-$(OBJS_DIR) :
-	mkdir $(OBJS_DIR)
+$(OBJ_DIR) :
+	mkdir $(OBJ_DIR)
